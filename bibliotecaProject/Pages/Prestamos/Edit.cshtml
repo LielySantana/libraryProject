@@ -1,0 +1,75 @@
+@page
+@model bibliotecaProject.Pages.Prestamos.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>prestamo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="prestamo.Id" />
+            <div class="form-group">
+                <label asp-for="prestamo.empleadoId" class="control-label"></label>
+                <select asp-for="prestamo.empleadoId" class="form-control" asp-items="ViewBag.empleadoId"></select>
+                <span asp-validation-for="prestamo.empleadoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.libroId" class="control-label"></label>
+                <select asp-for="prestamo.libroId" class="form-control" asp-items="ViewBag.libroId"></select>
+                <span asp-validation-for="prestamo.libroId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.usuarioId" class="control-label"></label>
+                <select asp-for="prestamo.usuarioId" class="form-control" asp-items="ViewBag.usuarioId"></select>
+                <span asp-validation-for="prestamo.usuarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.FechaPrestamo" class="control-label"></label>
+                <input asp-for="prestamo.FechaPrestamo" class="form-control" />
+                <span asp-validation-for="prestamo.FechaPrestamo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.FechaDevolucion" class="control-label"></label>
+                <input asp-for="prestamo.FechaDevolucion" class="form-control" />
+                <span asp-validation-for="prestamo.FechaDevolucion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.MontoPorDia" class="control-label"></label>
+                <input asp-for="prestamo.MontoPorDia" class="form-control" />
+                <span asp-validation-for="prestamo.MontoPorDia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.CantidadDias" class="control-label"></label>
+                <input asp-for="prestamo.CantidadDias" class="form-control" />
+                <span asp-validation-for="prestamo.CantidadDias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.Comentarios" class="control-label"></label>
+                <input asp-for="prestamo.Comentarios" class="form-control" />
+                <span asp-validation-for="prestamo.Comentarios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestamo.Estado" class="control-label"></label>
+                <input asp-for="prestamo.Estado" class="form-control" />
+                <span asp-validation-for="prestamo.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

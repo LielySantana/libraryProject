@@ -1,0 +1,39 @@
+@page
+@model bibliotecaProject.Pages.Editoras.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Insertar</h1>
+
+<h4>Editoras</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="editoras.Descripcion" class="control-label"></label>
+                <input asp-for="editoras.Descripcion" class="form-control" />
+                <span asp-validation-for="editoras.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editoras.Estado" class="control-label"></label>
+                <input asp-for="editoras.Estado" class="form-control" />
+                <span asp-validation-for="editoras.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Insertar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Volver a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

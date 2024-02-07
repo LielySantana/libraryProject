@@ -1,0 +1,55 @@
+@page
+@model bibliotecaProject.Pages.Empleados.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>empleados</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.empleados.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.empleados.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.empleados.Cedula)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.empleados.Cedula)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.empleados.TandaLabor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.empleados.TandaLabor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.empleados.PorcientoComision)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.empleados.PorcientoComision)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.empleados.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.empleados.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.empleados.Estado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.empleados.Estado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.empleados.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

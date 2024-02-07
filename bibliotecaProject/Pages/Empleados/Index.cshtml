@@ -1,0 +1,66 @@
+@page
+@model bibliotecaProject.Pages.Empleados.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empleados[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empleados[0].Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empleados[0].TandaLabor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empleados[0].PorcientoComision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empleados[0].FechaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empleados[0].Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.empleados) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TandaLabor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PorcientoComision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

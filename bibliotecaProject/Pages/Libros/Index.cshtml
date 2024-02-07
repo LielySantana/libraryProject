@@ -1,0 +1,90 @@
+@page
+@model bibliotecaProject.Pages.Libros.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].SignaturaTopografica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].tipoBibliografiaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].autores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].editora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].AnoPublicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].Ciencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].Idioma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libros[0].Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.libros) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignaturaTopografica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoBibliografiaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.autores.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.editora.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoPublicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciencia.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idioma.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
