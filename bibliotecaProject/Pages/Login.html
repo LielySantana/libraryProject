@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+</head>
+<body>
+    [Route("[controller]")]
+    public class AuthController : ControllerBase
+    {
+    private readonly IAuthService _authService;
+
+    public AuthController(IAuthService authService)
+    {
+    _authService = authService;
+    }
+
+    [HttpPost]
+    [Route("login")]
+    public async Task<IActionResult>
+        Login(LoginModel model)
+        {
+        var isAuthenticated = await _authService.ValidateCredentialsAsync(model.Username, model.Password);
+
+        if (isAuthenticated)
+        {
+        // Authentication successful, generate JWT token or perform any other authentication logic
+        // For simplicity, let's just return a success message
+        return Ok(new { message = "Login successful" });
+        }
+        else
+        {
+        // Authentication failed, return unauthorized status
+        return Unauthorized(new { message = "Invalid username or password" });
+        }
+        }
+        }
+</body>
+</html>
